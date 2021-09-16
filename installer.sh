@@ -8,6 +8,36 @@ if [ $UID != 0 ]; then
 fi
 
 
+#### Check that dependencies are satisfied
+which fping
+if [ $? == 1 ]; then
+  echo -e "\nThis script requires fping to be installed"
+  echo "Would you like to install it now? y/n"
+  read ans
+  if [[ $ans == 'y' ]]; then
+    apt install -f -y fping
+  else
+    echo -e "\nExiting without installation"
+    exit 1
+  fi
+fi
+which curl
+if [ $? == 1 ]; then
+  echo -e "\nThis script also requires curl to be installed"
+  echo "Would you like to install it now? y/n"
+  read ans
+  if [[ $ans == 'y' ]]; then
+    apt install -f -y curl
+  else
+    echo -e "\nRemoving fping..."
+    sleep 2
+    apt remove -f -y fping
+    echo -e "\nExiting without installation"
+    exit 1
+  fi
+fi
+
+
 #### Check if warrant_canary is already installed
 if [ -x /usr/local/bin/warrant_canary ]; then
   echo "warrant_canary is already installed"
