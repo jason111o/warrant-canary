@@ -3,7 +3,7 @@
 
 #### Check for super powers
 if [ $EUID != 0 ]; then
-  echo "Installer must be run with Super Powers ;)"
+  echo -e "\nInstaller must be run with Super Powers ;)\n"
   exit 1
 fi
 
