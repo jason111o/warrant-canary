@@ -18,9 +18,7 @@ connected="true"
 tries=3
 while (expr $tries > 0); do
     notify-send -t 3000 -i $icons/check_connection.png "Checking internet connection"
-    echo "Checking internet connection..."
-    fping -4 parrotsec.org &
-    sleep 3
+    echo "Checking internet connection..." &
   connected=$(fping -4 parrotsec.org 2>/dev/null | grep -o alive)
   if [[ $connected == "alive" ]]; then
     notify-send -t 3000 -i $icons/connected.png "Connection established!"
