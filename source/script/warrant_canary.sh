@@ -3,7 +3,7 @@
 ####MOETOX####
 
 #### Set some variables
-version="Warrant Canary v1.1"
+version="Warrant Canary v1.2"
 icons="/usr/local/bin/warrant_canary_icons"
 phrase="Signed Warrant"
 website="https://parrotsec.org/docs/warrant-canary.html"
