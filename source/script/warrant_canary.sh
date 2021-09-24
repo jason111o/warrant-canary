@@ -5,13 +5,13 @@
 #### Set some variables
 version="Warrant Canary v1.2"
 icons="/usr/local/bin/warrant_canary_icons"
-phrase="Signed Warrant"
+phrase="Signed"
 website="https://parrotsec.org/docs/warrant-canary.html"
 
 #### Display version info
 notify-send -t 3000 -i $icons/still_safe.png "$version"
 echo "$version"
-sleep 3
+sleep 2
 
 #### Check for internet connection a time or two if no connection is made
 connected="true"
@@ -49,7 +49,7 @@ fi
 
 #### Now actually check for the ParrotSEC warrant canary
 #### Well... at least a particular phrase
-keywords=$(curl -L -s $website | grep "$phrase")
+keywords=$(curl -s $website | grep "$phrase")
 if [[ $? != 0 ]]; then
     notify-send -t 0 -i $icons/has_warrants.png "PARROTSEC MAY HAVE BEEN SERVED!!!"
     echo "PARROTSEC MAY HAVE BEEN SERVED!!!"
