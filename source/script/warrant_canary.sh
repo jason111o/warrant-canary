@@ -3,15 +3,36 @@
 ####MOETOX####
 
 #### Set some variables
-version="Warrant Canary v1.2"
+version="Canary Warrant v1.3"
 icons="/usr/local/bin/warrant_canary_icons"
 phrase="Signed"
 website="https://parrotsec.org/docs/warrant-canary.html"
+help_info="\nwarrant_canary [-h (help) | -v (version) | -a (about)]\n"
 
-#### Display version info
-notify-send -t 3000 -i $icons/still_safe.png "$version"
-echo "$version"
-sleep 2
+#### Display usage
+case $1 in
+  "-h")
+    echo -e "$help_info"
+    exit 0
+    ;;
+  "-v")
+    echo -e "\n$version\n"
+    exit 0
+    ;;
+  "-a")
+    echo -e "\nCanary Warrant (warrant_canary from the cli);"
+    echo -e "uses basic linux commands to check for a particular \"string\""
+    echo -e "from https://parrotsec.org/docs/warrant-canary.html and then"
+    echo -e "display it to you in hopes of just making it easier to get a"
+    echo -e "hint if they have been served a secret warrant by an agency"
+    echo -e "of sorts."
+    echo -e "  This information is passive in nature, but is on display"
+    echo -e "and available to all who wish to know just how far an agency"
+    echo -e "is willing to go to monitor it's law abiding citizens in the"
+    echo -e "name of whatever the catch phrase is of the day.\n"
+    exit 0
+    ;;
+esac
 
 #### Check for internet connection a time or two if no connection is made
 connected="true"
