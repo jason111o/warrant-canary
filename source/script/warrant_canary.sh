@@ -3,7 +3,7 @@
 ####MOETOX####
 
 #### Set some variables
-version="Canary Warrant v1.3"
+version="Warrant Canary v1.3"
 icons="/usr/local/bin/warrant_canary_icons"
 phrase="Signed"
 website="https://parrotsec.org/docs/warrant-canary.html"
@@ -20,7 +20,7 @@ case $1 in
     exit 0
     ;;
   "-a")
-    echo -e "\nCanary Warrant (warrant_canary from the cli);"
+    echo -e "\nWarrant Canary (warrant_canary from the cli);"
     echo -e "uses basic linux commands to check for a particular \"string\""
     echo -e "from https://parrotsec.org/docs/warrant-canary.html and then"
     echo -e "display it to you in hopes of just making it easier to get a"
@@ -45,8 +45,8 @@ while (expr $tries > 0); do
     notify-send -t 3000 -i $icons/connected.png "Connection established!"
     echo "Connection established!"
     sleep 3
-    notify-send -t 3000 -i $icons/check_canary.png "Checking for Canary Warrant"
-    echo "Checking for Canary Warrant"
+    notify-send -t 3000 -i $icons/check_canary.png "Checking for Warrant Canary"
+    echo "Checking for Warrant Canary"
     sleep 3
     break
   else
