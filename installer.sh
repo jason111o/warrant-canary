@@ -99,13 +99,38 @@ fi
 #### Install everything to /usr/local/bin and set permissions for all users
 echo -e "\n${WHITE}Installing Warrant Canary...${NOCOLOR}"
 sleep 3
-cp source/script/warrant_canary.sh /usr/local/bin/warrant_canary
-chmod +x /usr/local/bin/warrant_canary
-cp -r source/warrant_canary_icons /usr/local/bin/
+#---------------------------------------------
+if [[ ! -f source/script/warrant_canary.sh ]]; then
+  echo -e "\n${CYAN}\"source/script/warrant_canary.sh\" ${RED}NOT FOUND\n${NOCOLOR}Exiting...\n"
+  sleep 2
+  exit 1
+else
+  cp source/script/warrant_canary.sh /usr/local/bin/warrant_canary 2>/dev/null
+  if [[ $? != 0 ]]; then
+    echo -e "\n${RED}ERROR encountered while copying script to ${YELLOW}/usr/local/bin${NOCOLOR}\nExiting...\n"
+    sleep 2
+    exit 1
+  else
+    chmod +x /usr/local/bin/warrant_canary
+  fi
+fi
+#-----------------------------------------------
+if [[ ! -d source/warrant_canary_icons ]]; then
+  echo -e "\n${CYAN}\"source/warrant_canary_icons\" ${RED}NOT FOUND\nExiting...\n"
+  sleep 2
+  exit 1
+else
+  cp -r source/warrant_canary_icons /usr/local/bin/ 2>/dev/null
+  if [[ $? != 0 ]]; then
+    echo -e "${RED}ERROR encoutered while copying icons to ${YELLOW}/usr/local/bin${NOCOLOR}\nExiting...\n"
+    sleep 2
+    exit 1
+  fi
+fi
 
 
 #### Everything is done
-echo -e "\n${CYAN}Warrant Canary has been installed and can be run from the command line as 'warrant_canary'\n${NCOCOLOR}"
+echo -e "\n${CYAN}Warrant Canary has been installed and can be run from the command line as 'warrant_canary'\n${NOCOLOR}"
 
 
 exit 0
