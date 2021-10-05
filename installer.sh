@@ -11,7 +11,7 @@ NOCOLOR='\033[0m'
 
 #### Check for super powers
 if [ $EUID != 0 ]; then
-  echo -e "\n${RED}Installer must be run with Super Powers ;)\n${NOCOLOR}"
+  echo -e "\n${RED}Warrant Canary installer must be run with Super Powers ;)\n${NOCOLOR}"
   exit 1
 fi
 #### Ensure that we are in the warrant-canary directory
