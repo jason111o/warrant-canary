@@ -91,8 +91,8 @@ fi
 
 
 #### Check if the icon source directory exists and if it does remove it for reinstall
-if [ -d /usr/local/bin/warrant_canary_icons ]; then
-  rm -r /usr/local/bin/warrant_canary_icons
+if [ -d /usr/local/share/warrant_canary_icons ]; then
+  rm -r /usr/local/share/warrant_canary_icons
 fi
 
 
@@ -120,7 +120,7 @@ if [[ ! -d source/warrant_canary_icons ]]; then
   sleep 2
   exit 1
 else
-  cp -r source/warrant_canary_icons /usr/local/bin/ 2>/dev/null
+  cp -r source/warrant_canary_icons /usr/local/share/ 2>/dev/null
   if [[ $? != 0 ]]; then
     echo -e "${RED}ERROR encoutered while copying icons to ${YELLOW}/usr/local/bin${NOCOLOR}\nExiting...\n"
     sleep 2
